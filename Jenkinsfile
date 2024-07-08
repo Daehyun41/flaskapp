@@ -23,3 +23,9 @@ pipeline {
          }
          success {
                echo 'success'
+         }
+         failure {
+               echo 'failure'
+         }
+      }
+   }
