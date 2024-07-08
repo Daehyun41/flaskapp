@@ -1,59 +1,47 @@
 pipeline {
 
-	agent any
+   agent any
 
-	stages {
+   environment {
 
-		stage("build") {
+      NEW_VERSION = '1.0.0'
 
-			when {
+   }
 
-				expression {
+   stages {
 
-					env.GIT_BRANCH == 'origin/main'
+      stage("build") {
 
-				}
+         steps {
 
-			}
+            echo 'building the applicaiton...'
 
-			steps {
+            echo "building version ${NEW_VERSION}"
 
-				echo 'building the applicaiton...'
+         }
 
-			}
+      }
 
-		}
+      stage("test") {
 
-		stage("test") {
+         steps {
 
-			when {
+            echo 'testing the applicaiton...'
 
-				expression {
+         }
 
-					env.GIT_BRANCH == 'origin/test' || env.GIT_BRANCH == ''
+      }
 
-				}
+      stage("deploy") {
 
-			}
+         steps {
 
-			steps {
+            echo 'deploying the applicaiton...'
 
-				echo 'testing the applicaiton...'
+         }
 
-			}
+      }
 
-		}
-
-		stage("deploy") {
-
-			steps {
-
-				echo 'deploying the applicaiton...'
-
-			}
-
-		}
-
-	}
+   }
 
 }
