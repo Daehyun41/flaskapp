@@ -4,7 +4,7 @@ kind: Service
 
 metadata:
 
-  name: my-nginx
+  name: flasksvc
 
 spec:
 
@@ -12,10 +12,10 @@ spec:
 
   ports:
 
-  - port: 80
+  - port: 5000
 
     protocol: TCP
 
   selector: 
 
-    app: nginx
+    app: flask

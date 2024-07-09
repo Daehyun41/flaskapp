@@ -2,9 +2,15 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: flaskpod
+  labels:
+    app: flaskpod
 spec:
   containers:
   - name: flask
     image: dannypetun/flaskapp:latest
     ports:
     - containerPort: 5000
+  imagePullSecrets:
+  - name: docker-pull-secret
+
+
